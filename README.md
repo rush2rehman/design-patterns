@@ -1,5 +1,4 @@
-# design-patterns
-###design patterns exercises
+# Design Patterns
 
 1. Design patterns apply at different levels - code, system design , Interface design..
 
