@@ -1,4 +1,4 @@
-###Creational Patterns
+### Creational Patterns
 1. Creational patterns are related to creation of objects
 
 There is a bit of debate in what exactly is the difference between simple factory, factory method 
