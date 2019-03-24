@@ -48,16 +48,14 @@ create many representations."</I></B>
 
 The builder patterns intents are:
 1. Avoid binacular constructor anti pattern 
-2. When the object build involves
-  - too many parameters
-  - order of building
-  - different constructions
-  builder pattern gives a way of separating the construction logic from data
+2. When the object build involves below, separate the construction logic from data
+    - too many parameters
+    - order of building
+    - different constructions   
   
- Director <---Builder(abstract) --- Concrete Builder
-                                |
-                                |
-                           product
+  
+ Director <---Builder(abstract) --- Concrete Builder -- product
+             
                            
  In the builder pattern, product is the object being built.
  Builder has the abstract methods to set the data for building the product.    
