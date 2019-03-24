@@ -1,5 +1,7 @@
-### Creational Patterns
-1. Creational patterns are related to creation of objects
+## Creational Patterns
+Creational patterns are related to creation of objects
+
+### Factory Method and Abstract Factory
 
 There is a bit of debate in what exactly is the difference between simple factory, factory method 
 and abstract factory..
@@ -14,7 +16,7 @@ program
     - DB
     - Config
 
-##
+
 1. Simple factory is the simplest form where factories where OCP(object creating program) is aware 
 of concrete factory. So point no 2 above is not achieved. Factory takes a input from the user/OCP to 
 decide which object to create. This is generally useful when the Object creation is a very simple 
@@ -40,4 +42,28 @@ There is family of jaxp implementations, we can load more than one library in te
 Now depending upon the paramater passed, a suitable implementation is returned.
  
 
+## Builder Pattern
+<B><I>"Seperate the construction of complex object from its representation so that construction process can 
+create many representations."</I></B>
 
+The builder patterns intents are:
+1. Avoid binacular constructor anti pattern 
+2. When the object build involves
+  - too many parameters
+  - order of building
+  - different constructions
+  builder pattern gives a way of separating the construction logic from data
+  
+ Director <---Builder(abstract) --- Concrete Builder
+                                |
+                                |
+                           product
+                           
+ In the builder pattern, product is the object being built.
+ Builder has the abstract methods to set the data for building the product.    
+ one or more concrete builders would know what data and to be used for building the product. Think 
+ of this as the parameters to be passed in the constructor. Each concrete builder implements the 
+ methods from abstract builder and sets the appropriate data.
+ Director has the logic to create the product. It takes a builder(knows only the abstract builder)
+ in the constructor and operates on the product product held in the builder.
+ 
