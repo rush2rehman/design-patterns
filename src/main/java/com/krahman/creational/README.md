@@ -65,3 +65,51 @@ The builder patterns intents are:
  Director has the logic to create the product. It takes a builder(knows only the abstract builder)
  in the constructor and operates on the product product held in the builder.
  
+ <B>What is not a builder pattern</B>
+ 1. A stringbuilder where ever append adds a string to the stringbuilder.
+ 2. An object creation thorugh chained set methods.
+ 
+ Real world examples 
+  - there are lot of examples showing a static class with different setter and build method. This in
+  my opinion a related pattern but not a builder pattern. As this is not fully satisfying the intent 
+  above - we should be able to add a new builder and pass it on to the director
+  
+  - this one is good: https://github.com/dparoulek/java-koans/tree/master/src/main/java/com/upgradingdave/koans/builder
+  -  
+  
+  
+ ### Singleton Pattern
+ 
+ <B>Intent:</B>
+ 1. Only one instance of an object needs to be there
+ 2. Make the class itself is responsible for keeping track of its sole instance
+ 
+<B>When to Use:</B>  
+ 1. There is no state being maintained in the singleton
+ 2. Resource management use cases
+ 3. When the object creation is an expensive process and there is no reason to create multiple
+  instances
+  
+ <B>Real world examples</B>
+ 1. Java runtime is a very good example - Runtime singleton gives handle to runtime information like
+  memory utilization, input and output streams etc
+ 2. Logger - there is no reason to have multiple logger instances
+    - All the processes need a single unified way of logging
+    - Better control on synchronizing file logs  
+    [The debate around logging is - I can make teh static wtiteToLog method synchronized and force 
+    the parallel threads to queue up. But static methods are anyway discouraged?? its more elegant 
+    to implement singleton and synchronize on instance method writeToFile  ]
+    
+ Good link with examples:
+ https://www.geeksforgeeks.org/java-singleton-design-pattern-practices-examples/ 
+ 
+ Singleton can be implemented in multiple ways
+ 1. EagerLoad - not thread safe
+ 2. LazyLoad - not thread safe
+ 3. LazyLoad threadsafe
+      - Synchronized method to get instance
+      - Double check lock - synchronized block
+      - Bill Pugh method - most favoured, no synchronization involved, teh way JVM creates the 
+      static class members is sequential, so automatically synchronized. Only problem is, if the 
+      object creation fails - not much control to handle.
+ 
