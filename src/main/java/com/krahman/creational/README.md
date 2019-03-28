@@ -101,7 +101,7 @@ The builder patterns intents are:
     to implement singleton and synchronize on instance method writeToFile  ]
     
  Good link with examples:
- https://www.geeksforgeeks.org/java-singleton-design-pattern-practices-examples/ 
+ h.ttps://www.geeksforgeeks.org/java-singleton-design-pattern-practices-examples/ 
  
  Singleton can be implemented in multiple ways
  1. EagerLoad - not thread safe
@@ -112,4 +112,26 @@ The builder patterns intents are:
       - Bill Pugh method - most favoured, no synchronization involved, teh way JVM creates the 
       static class members is sequential, so automatically synchronized. Only problem is, if the 
       object creation fails - not much control to handle.
+      
+ ## Prototype
+ 
+ This pattern is all about copying an already built object along with its state rather than recreating
+ the object. The intent is
+ 1. If the object creation is costly, prototype will reduce the overhead
+ 2. Copying the state of an object to the new object
+ 3. Hiding the constructor 
+ 
+ The pattern is nothing but clone process in Java - shallow cloning & deep cloning
+ The fundamentals of cloning in Java
+  - An object should have implemented marker interface Cleaneable
+  and overridden public Object clone() method.
+  - super.clone call will clone the object - for deep cloning we need to clone the referenced 
+  objects as part of the cloning process
+  
+ A clean prototype will have below structure
+ 1. A base cloneable class with essentials/common memebers/state
+ 2. Child classes which cater tto different cloning needs - you can add additional members, change 
+ the cloning strategy
+ 3. A cloning manager that keep a seed copy registry is a map and help the clients provide the 
+ requested clone object
  
